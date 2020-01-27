@@ -61,4 +61,4 @@ ZipLoadingManager.uncompress = function ( url, exts, onLoad, onProgress, onError
 };
 
 
-export { ZipLoadingManager };
+export default ZipLoadingManager;
