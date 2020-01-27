@@ -3,11 +3,12 @@
  */
 
 import JSZip from 'jszip';
+import {DefaultLoadingManager, LoaderUtils, FileLoader} from 'three'
 
 
 function ZipLoader( manager ) {
 
-	this.manager = ( manager !== undefined ) ? manager : THREE.DefaultLoadingManager;
+	this.manager = ( manager !== undefined ) ? manager : DefaultLoadingManager;
 
 }
 
@@ -46,11 +47,11 @@ Object.assign( ZipLoader.prototype, {
 
 		var promise = JSZip.external.Promise;
 
-		var baseUrl = 'blob:' + THREE.LoaderUtils.extractUrlBase( url );
+		var baseUrl = 'blob:' + LoaderUtils.extractUrlBase( url );
 
 		return new promise( function ( resolve, reject ) {
 
-			var loader = new THREE.FileLoader( scope.manager );
+			var loader = new FileLoader( scope.manager );
 			loader.setResponseType( 'arraybuffer' );
 			loader.load( url, resolve, onProgress, reject );
 
