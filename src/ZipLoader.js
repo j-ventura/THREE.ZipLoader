@@ -127,4 +127,4 @@ Object.assign( ZipLoader.prototype, {
 } );
 
 
-export { ZipLoader };
+export default ZipLoader ;
